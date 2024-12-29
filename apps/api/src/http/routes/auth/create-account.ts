@@ -52,10 +52,10 @@ export async function createAccount(app: FastifyInstance) {
           passwordHash,
           member_on: autoJoinOrganization
             ? {
-              create: {
-                organizationId: autoJoinOrganization.id,
-              },
-            }
+                create: {
+                  organizationId: autoJoinOrganization.id,
+                },
+              }
             : undefined,
         },
       })
