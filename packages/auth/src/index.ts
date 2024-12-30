@@ -17,6 +17,7 @@ import { userSubject } from './subjects/user'
 export * from './models/organization'
 export * from './models/project'
 export * from './models/user'
+export * from './roles'
 
 const appAbilitiesSchema = z.union([
   projectSubject,
@@ -48,5 +49,7 @@ export function defineAbilityFor(user: User) {
     },
   })
 
+  ability.can = ability.can.bind(ability)
+  ability.cannot = ability.cannot.bind(ability)
   return ability
 }
