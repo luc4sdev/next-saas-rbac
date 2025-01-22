@@ -25,7 +25,7 @@ export async function createProject(app: FastifyInstance) {
             description: z.string(),
           }),
           params: z.object({
-            slug: z.string().uuid(),
+            slug: z.string(),
           }),
           response: {
             201: z.object({
@@ -49,7 +49,7 @@ export async function createProject(app: FastifyInstance) {
         }
 
         const { name, description } = request.body
-
+        console.log(name)
         const project = await prisma.project.create({
           data: {
             name,
