@@ -6,7 +6,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { useTheme } from "next-themes";
 
 export function ThemeSwitcher() {
-    const { setTheme, resolvedTheme } = useTheme()
+    const { setTheme } = useTheme()
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
