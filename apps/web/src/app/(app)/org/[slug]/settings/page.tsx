@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { OrganizationForm } from "../../organization-form"
 import { ShutdownOrganizationButton } from "./shutdown-organization-button"
 import { getOrganization } from "@/http/get-organization"
+import { Billing } from "./billing"
 
 export default async function Settings() {
     const currentOrg = await getCurrentOrg()
@@ -31,19 +32,7 @@ export default async function Settings() {
                 )}
 
 
-                {canGetBilling && (
-                    <div>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Billing</CardTitle>
-                                <CardDescription>Manage your billing information</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p>Coming soon</p>
-                            </CardContent>
-                        </Card>
-                    </div>
-                )}
+                {canGetBilling && <Billing />}
 
 
                 {canShutdownOrganization && (
