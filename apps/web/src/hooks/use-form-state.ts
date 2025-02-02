@@ -22,6 +22,7 @@ export function useFormState(
             const state = await action(data)
             setFormState(state)
         })
+        form.reset()
     }
 
     return [formState, handleSubmit, isPending] as const

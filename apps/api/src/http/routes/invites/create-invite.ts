@@ -26,7 +26,7 @@ export async function createInvite(app: FastifyInstance) {
             role: roleSchema,
           }),
           params: z.object({
-            slug: z.string().uuid(),
+            slug: z.string(),
           }),
           response: {
             201: z.object({
@@ -50,7 +50,7 @@ export async function createInvite(app: FastifyInstance) {
         }
 
         const { email, role } = request.body
-        const [, domain] = email
+        const [, domain] = email.split('@')
         if (
           organization.shouldAttachUsersByDomain &&
           organization.domain === domain
